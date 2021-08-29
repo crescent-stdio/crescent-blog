@@ -6,46 +6,5 @@
   color: #222831;
   /* font-family: 'Nanum Gothic Coding', monospace; */
   font-family: 'Gowun Dodum', sans-serif;
-  font-size: 4vmin;
   word-break: keep-all;
-}
-header {
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-.head {
-  padding: 2 5vmin;
-  font-weight: bold;
-  text-decoration: none;
-}
-.head ul{
-  margin: 0;
-  padding: 0 2vmin;
-  list-style: none;
-
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.head a{
-  display: flex;
-  padding: 2vmin;
-  color: inherit;
-  font-size: 3vmin;
-  text-decoration: none;
-}
-.head a:hover {
-  color: #F05454;
-}
-
-.body {
-  margin: 4vmin 10vmin;
-}
-.body h1{
-  margin: 2vmin 0;
-}
-.body div{
-  font-size: 4vmin;
 }

@@ -1,24 +1,22 @@
-import React from 'react'
-import './App.css';
+import React from 'react';
+import { Route, Router } from 'react-router-dom';
+import Home from './pages/Home';
+import Blog from './pages/Blog';
+import About from './pages/About';
+import blogHeader from './components/common/Header';
+import pageRouter from './routes/Router';
+
 function App() {
   return (
-    <div>
-      <header>
-        <nav className="head">
-          <ul>
-            <li><a>Main</a></li>
-            <li><a>Blog</a></li>
-            <li><a>About</a></li>
-          </ul>
-        </nav>
-      </header>
-      <div className="body">
-        <h1> Blog </h1>
-        <information></information>
-        <div>이상향 속 이상함을 추구🔮</div>
-      </div>
-    </div>
+    <>
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/about" component={About} />
+      {/* <blogHeader/>
+      dd
+      <pageRouter/> */}
+    </>
   );
-}
+};
 
 export default App;
