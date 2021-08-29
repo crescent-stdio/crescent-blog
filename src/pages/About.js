@@ -6,9 +6,7 @@ function About() {
   return (
     <>
       <BlogHeader />
-      <BlogBody>
-        <h1> About </h1>
-        <div>나는 누구? 여긴 어디?🚨</div>
+      <BlogBody name='about.md'>
       </BlogBody>
     </>
   );

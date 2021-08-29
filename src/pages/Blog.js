@@ -6,9 +6,7 @@ function Blog() {
   return (
     <>
       <BlogHeader />
-      <BlogBody>
-        <h1> Blog </h1>
-        <div>나의 즐거움은 어디까지? 😏</div>
+      <BlogBody name='blog.md'>
       </BlogBody>
     </>
   );
