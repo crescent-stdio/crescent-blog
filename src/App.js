@@ -3,8 +3,7 @@ import { Route, Router } from 'react-router-dom';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import About from './pages/About';
-import blogHeader from './components/common/Header';
-import pageRouter from './routes/Router';
+import './App.css';
 
 function App() {
   return (
@@ -12,9 +11,6 @@ function App() {
       <Route path="/" exact={true} component={Home} />
       <Route path="/blog" component={Blog} />
       <Route path="/about" component={About} />
-      {/* <blogHeader/>
-      dd
-      <pageRouter/> */}
     </>
   );
 };

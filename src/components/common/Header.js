@@ -11,18 +11,18 @@ const HeaderBlock = styled.div`
   height: 3.5rem;
   /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08); */
 
-  padding: 0.25rem 1rem;
+  padding: 0.75rem 1.5rem;
 
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   @media only screen and (max-width: 768px) {
-    padding: 0.25rem 0.25rem;
+    padding: 0.75rem 1rem;
     height: 2rem;
     font-size: 1vw;
   }
-  `;
+`;
 const Logo = styled.div`
   display: flex;
   align-items: center;
@@ -33,8 +33,7 @@ const Icon = styled.img`
   @media only screen and (max-width: 768px) {
     height: 1.2rem;
   }
-  `;
-  
+`;
 
 const Menu = styled.ul`
   margin: 0;
@@ -55,7 +54,10 @@ const Menu = styled.ul`
     }
   }
   a:first-child {
-    margin-right: 1rem;
+    margin-right: 1.75rem;
+    @media only screen and (max-width: 768px) {
+      margin-right: 1rem;
+    }
   }
 `;
 
