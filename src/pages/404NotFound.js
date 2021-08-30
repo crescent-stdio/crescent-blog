@@ -1,17 +1,17 @@
 import React from 'react';
 import BlogHeader from '../components/Header';
 import BlogBody from '../components/Body';
-import BlogFooter from '../components/Footer.js';
+import BlogFooter from '../components/Footer';
 
-function Home() {
+function NotFound() {
   return (
     <>
       <BlogHeader />
-      <BlogBody name='info'>
+      <BlogBody name='404'>
       </BlogBody>
       <BlogFooter/>
     </>
   );
 }
 
-export default Home;
+export default NotFound;

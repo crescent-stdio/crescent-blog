@@ -7,20 +7,18 @@ import './style.css';
 const HeaderBlock = styled.div`
   top: 0;
   left: 0;
-  /* position: fixed; */
-  height: 3.5rem;
-  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08); */
 
-  padding: 0.75rem 1.5rem;
+  /* width: auto; */
+  height: 8rem;
 
+  padding : 2rem 4rem;   
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   @media only screen and (max-width: 768px) {
-    padding: 0.75rem 1rem;
-    height: 2rem;
-    font-size: 1vw;
+    padding: 1.5rem 1.5rem;
+    height: 5rem;
   }
 `;
 const Logo = styled.div`
@@ -29,9 +27,9 @@ const Logo = styled.div`
   justify-content: center;
 `;
 const Icon = styled.img`
-  height: 2rem;
+  height: 2.5rem;
   @media only screen and (max-width: 768px) {
-    height: 1.2rem;
+    height: 2rem;
   }
 `;
 
@@ -40,9 +38,10 @@ const Menu = styled.ul`
   padding: 0;
 
   display: flex;
+  align-items: center;
   a {
     display: block;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     text-decoration: none;
     font-weight: bold;
     color: inherit;
@@ -50,13 +49,13 @@ const Menu = styled.ul`
       color: #f05454;
     }
     @media only screen and (max-width: 768px) {
-      font-size: 1rem;
+      font-size: 1.25rem;
     }
   }
   a:first-child {
-    margin-right: 1.75rem;
+    margin-right: 2rem;
     @media only screen and (max-width: 768px) {
-      margin-right: 1rem;
+      margin-right: 1.5rem;
     }
   }
 `;
@@ -71,7 +70,7 @@ function BlogHeader() {
           </Link>
         </Logo>
         <Menu>
-          <Link to="/blog">Blog</Link>
+          <Link to="/post">Post</Link>
           <Link to="/about">About</Link>
         </Menu>
       </HeaderBlock>

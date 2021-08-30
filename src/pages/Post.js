@@ -1,17 +1,15 @@
 import React from 'react';
 import BlogHeader from '../components/Header';
 import BlogBody from '../components/Body';
-import BlogFooter from '../components/Footer.js';
 
-function Home() {
+function Post({match}) {
   return (
     <>
       <BlogHeader />
-      <BlogBody name='info'>
+      <BlogBody name = {match.params.id}>
       </BlogBody>
-      <BlogFooter/>
     </>
   );
 }
 
-export default Home;
+export default Post;

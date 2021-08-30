@@ -1,38 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import Markdown from 'markdown-to-jsx';
 import styled from 'styled-components';
-
+import remarkGfm from 'remark-gfm';
 
 const BodyBlock = styled.div`
-  margin: 0.5rem 4rem;
+  margin: 2rem 6rem;
   @media only screen and (max-width: 768px) {
-    margin: 0.5rem 1rem;
+    margin: 2rem 1rem;
   }
 `;
 
 const H1 = styled.h1`
   font-size: 2.5rem;
-  margin: 0.75rem 0;
+  margin: 1rem 0;
+  @media only screen and (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
-const H2 = styled.h1`
+const H2 = styled.h2`
   font-size: 2rem;
   margin: 0.5rem 0;
-
+  @media only screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
-const H3 = styled.h1`
+const H3 = styled.h3`
   font-size: 1.5rem;
   margin: 0.5rem 0 0.15rem;
+  @media only screen and (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
-const Text = styled.h1`
-  font-size: 1.75rem;
+const Text = styled.p`
+  font-size: 1.25rem;
+  margin: 0.15rem 0;
+  @media only screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
+
+const List = styled.li`
+  font-size: 1.25rem;
+  margin: 0.15rem 0;
+  margin-left: 1.5rem;
+  @media only screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
 function BlogBody(props) {
   const [post, setPost] = useState('');
 
   useEffect(() => {
-    import(`../../pages/${props.name}`)
+    import(`../post/${props.name}.md`)
       .then(res => {
         fetch(res.default)
           .then(res => res.text())
@@ -44,14 +66,14 @@ function BlogBody(props) {
   return (
     <>
       <BodyBlock>
-        <Markdown
+        <Markdown remarkPlugins={[[remarkGfm, {singleTilde: false}]]}
           options={{
             overrides: {
               h1: { component: H1 },
               h2: { component: H2 },
               h3: {component: H3},
-              text: { component: Text },
-              list: {component: Text},
+              p: { component: Text },
+              li: {component: List},
             },
           }}
         >
