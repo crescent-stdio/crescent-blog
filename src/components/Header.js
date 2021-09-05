@@ -8,14 +8,13 @@ const HeaderBlock = styled.div`
   top: 0;
   left: 0;
 
-  /* width: auto; */
-  height: 8rem;
-
-  padding : 2rem 4rem;   
+  padding : 5% 5%;   
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
+
   @media only screen and (max-width: 768px) {
     padding: 1.5rem 1.5rem;
     height: 5rem;
@@ -27,7 +26,7 @@ const Logo = styled.div`
   justify-content: center;
 `;
 const Icon = styled.img`
-  height: 2.5rem;
+  height: 2rem;
   @media only screen and (max-width: 768px) {
     height: 2rem;
   }
@@ -41,7 +40,7 @@ const Menu = styled.ul`
   align-items: center;
   a {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     text-decoration: none;
     font-weight: bold;
     color: inherit;
@@ -49,7 +48,7 @@ const Menu = styled.ul`
       color: #f05454;
     }
     @media only screen and (max-width: 768px) {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
     }
   }
   a:first-child {
