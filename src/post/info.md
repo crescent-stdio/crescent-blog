@@ -36,4 +36,4 @@ webpack, Redux, TypeScript, GraphicQL등 많은 것들을 배움으로 만나 �
 - 2021.08.30 : 가개장
 - 2021.09.05 : 메인 좀 고치기, 마크다운 꾸미기, 자료 찾기
 - 2021.09.06 : `markdown-to-jsx` -> `react-markdown`
-
+- 2021.09.07 : code syntax highlighting고치기

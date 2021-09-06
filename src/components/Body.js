@@ -75,10 +75,10 @@ const Text = styled.p`
 
 const List = styled.li`
   font-size: 1rem;
-
   margin: 0.125rem 0;
   /* margin-left: 1.25rem; */
   list-style: none;
+  
   @media only screen and (max-width: 768px) {
     font-size: 1rem;
   }
@@ -127,8 +127,8 @@ const components = {
   p: Text,
   li: List,
   code({ inline, className, children }) {
-    const language = className?.split("-")[1];
-    const code = String(children).replace(/\n$/, "") || "";
+    const language = className?.split('-')[1];
+    const code = String(children).replace(/\n$/, '') || '';
     return !inline ? (
       <SyntaxHighlighter language={language} style={prism}>
         {code}
