@@ -9,7 +9,11 @@ import {
   vscDarkPlus,
 } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-const BodyBlock = styled.div`
+const BodyBlock = styled.article`
+  box-sizing: border-box;
+  /* white-space: pre-line; */
+  line-height: 1.5;
+  padding: 0 0;
   margin: 2.5% 10% 5%;
   @media only screen and (max-width: 768px) {
     margin: 2.5% 4.75%;
@@ -21,11 +25,18 @@ const BodyBlock = styled.div`
   a {
     font-weight: bold;
   }
+  img {
+    max-width: 100%;
+  }
+  code {
+    padding: 2px 5px;
+  }
 `;
 
 const H1 = styled.h1`
   font-weight: bold;
   font-size: 2rem;
+  margin: 0 0;
   margin: 1rem 0;
   @media only screen and (max-width: 768px) {
     font-size: 2rem;
@@ -35,6 +46,8 @@ const H1 = styled.h1`
 const H2 = styled.h2`
   font-weight: bold;
   font-size: 1.5rem;
+  margin: 0 0;
+
   margin: 0.5rem 0;
   @media only screen and (max-width: 768px) {
     font-size: 1.5rem;
@@ -43,6 +56,8 @@ const H2 = styled.h2`
 const H3 = styled.h3`
   font-weight: bold;
   font-size: 1.25rem;
+  margin: 0 0;
+
   margin: 0.5rem 0 0.125rem;
   @media only screen and (max-width: 768px) {
     font-size: 1.25rem;
@@ -51,6 +66,7 @@ const H3 = styled.h3`
 
 const Text = styled.p`
   font-size: 1rem;
+
   margin: 0.125rem 0;
   @media only screen and (max-width: 768px) {
     font-size: 1rem;
@@ -59,6 +75,7 @@ const Text = styled.p`
 
 const List = styled.li`
   font-size: 1rem;
+
   margin: 0.125rem 0;
   /* margin-left: 1.25rem; */
   list-style: none;
@@ -74,7 +91,7 @@ const Code = styled.code`
   font-size: 1rem;
   font-weight: bold;
   margin: 0.125rem 0;
-  padding: 0 0.125rem;
+  line-height: 1.2;
 
   @media only screen and (max-width: 768px) {
     font-size: 1rem;
@@ -86,7 +103,7 @@ const Quote = styled.div`
   font-weight: bold;
   font-style: italic;
   margin: 0.125rem 0;
-  background-color: #333333;
+  /* background-color: #333333; */
 
   @media only screen and (max-width: 768px) {
     font-size: 1rem;
@@ -109,22 +126,15 @@ const components = {
   h3: H3,
   p: Text,
   li: List,
-  code({ node, inline, className, children, ...props }) {
-    const match = /language-(\w+)/.exec(className || '');
-    return !inline && match ? (
-      <SyntaxHighlighter
-        children={String(children).replace(/\n$/, '')}
-        style={vscDarkPlus}
-        language={match[1]}
-        PreTag="div"
-        {...props}
-      />
+  code({ inline, className, children }) {
+    const language = className?.split("-")[1];
+    const code = String(children).replace(/\n$/, "") || "";
+    return !inline ? (
+      <SyntaxHighlighter language={language} style={prism}>
+        {code}
+      </SyntaxHighlighter>
     ) : (
-      <Code>
-        <code className={className} {...props}>
-          {children}
-        </code>
-      </Code>
+      <Code>{code}</Code>
     );
   },
 };
