@@ -5,7 +5,6 @@ import Postlist from './pages/Postlist';
 import Post from './pages/Post';
 import About from './pages/About';
 import NotFound from './pages/404NotFound';
-import './App.css';
 
 function App() {
   return (

@@ -3,40 +3,37 @@
 
 > 이 블로그는 [링크](https://blog.crescent.dev)를 통해 들어오실 수 있습니다.
 
-<br>
-
-리액트 도전 2주차에 react-router와 Github Pages 배포를 써보고 싶은 마음에서부터 시작되었습니다.<br>
-webpack, Redux, TypeScript, GraphicQL등 많은 것들을 배움으로 만나 흥미롭고 신기한 공간으로 꾸미고 싶어요.<br>
+```c
+printf("<3");
+```
+   
+react-router와 Github Pages 배포를 써보고 싶은 마음에서부터 시작되었습니다.\
+webpack, Redux, TypeScript, GraphicQL등 많은 것들을 배움으로 만나 흥미롭고 신기한 공간으로 꾸미고 싶어요.\
 미리 메리 크리스마스~🎄
 
-<br>
-
 ### TODO 🧙‍♂️
-- 건강 챙기기(8/31 라섹, 9/8 화이자 2차)
-- `.md`파일 읽는 방식을 `react-markdown`로 변경
-- 마크다운 보이는 모습 꾸미기
-- 마크다운 코드 Syntex Highlighting
-- 포스트 작성
-- 디자인 고치기(w/ Figma)
-- 반응형
-- 웹 접근성
-- 댓글창
-- 손님 모시기
+* 건강 챙기기(8/31 라섹, 9/8 화이자 2차)
+* ~~`.md`파일 읽는 방식을 `react*markdown`로 변경~~
+* 마크다운 보이는 모습 꾸미기(e.g. line break)
+* 마크다운 코드 Syntex Highlighting
+* 포스트 작성
+* 디자인 고치기(w/ Figma)
+* 반응형
+* 웹 접근성
+* ~~today~~
+* 댓글창
+* 손님 모시기
 
 **🏃‍♂️🏃‍♀️🏃‍♂️🏃‍♀️아직 할 일이 많아요!!🏃‍♂️🏃‍♀️🏃‍♂️🏃‍♀️**
 
-<br><br>
 
 **즐거운 하루 되시고 건강을 기원합니다**
 
 2021.09.05
 초승달☾
 
-<br><Br><br><br>
-
 ### Update Log
 - 2021.08.30 : 가개장
-- 2021,09.05 : 메인 좀 고치기, 마크다운 꾸미기, 자료 찾기
+- 2021.09.05 : 메인 좀 고치기, 마크다운 꾸미기, 자료 찾기
+- 2021.09.06 : `markdown-to-jsx` -> `react-markdown`
 
-<br>
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fblog.crescent.dev&count_bg=%23F05454&title_bg=%2330475E&icon=macys.svg&icon_color=%23DDDDDD&title=today&edge_flat=false)](https://hits.seeyoufarm.com)
