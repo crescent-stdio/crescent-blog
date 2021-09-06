@@ -20,7 +20,6 @@ webpack, Redux, TypeScript, GraphicQL등 많은 것들을 배움으로 만나 �
 - 디자인 고치기(w/ Figma)
 - 반응형
 - 웹 접근성
-- 방문자 수
 - 댓글창
 - 손님 모시기
 
@@ -38,3 +37,6 @@ webpack, Redux, TypeScript, GraphicQL등 많은 것들을 배움으로 만나 �
 ### Update Log
 - 2021.08.30 : 가개장
 - 2021,09.05 : 메인 좀 고치기, 마크다운 꾸미기, 자료 찾기
+
+<br>
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fblog.crescent.dev&count_bg=%23F05454&title_bg=%2330475E&icon=macys.svg&icon_color=%23DDDDDD&title=today&edge_flat=false)](https://hits.seeyoufarm.com)
