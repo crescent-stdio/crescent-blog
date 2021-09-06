@@ -7,11 +7,11 @@
 
   /* background: #FEFEFF; */
   color: #30475E;
+
   /* font-family: 'Nanum Gothic Coding', monospace; */
   font-family: 'Gowun Dodum', sans-serif;
   font-size: 18px;
   word-break: keep-all;
- 
 }
 @media only screen and (max-width: 768px) {
   * {
