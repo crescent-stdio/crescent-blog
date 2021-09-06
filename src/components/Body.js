@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Markdown from 'markdown-to-jsx';
+import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 import remarkGfm from 'remark-gfm';
+import { BrowserRouter } from 'react-router-dom';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import {
+  prism,
+  vscDarkPlus,
+} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 const BodyBlock = styled.div`
   margin: 2.5% 10% 5%;
@@ -35,7 +41,7 @@ const H2 = styled.h2`
   }
 `;
 const H3 = styled.h3`
-  font-weight: bold;  
+  font-weight: bold;
   font-size: 1.25rem;
   margin: 0.5rem 0 0.125rem;
   @media only screen and (max-width: 768px) {
@@ -63,7 +69,7 @@ const List = styled.li`
 
 const Code = styled.code`
   border-radius: 4px;
-  background-color: #DDDDDD;
+  background-color: #ddddddaa;
   color: #f05454;
   font-size: 1rem;
   font-weight: bold;
@@ -87,40 +93,63 @@ const Quote = styled.div`
   }
 `;
 
-function BlogBody(props) {
-  const [post, setPost] = useState('');
+const Br = styled.br`
+  font-size: 1rem;
+  margin: 0.125rem 0;
+  /* margin-left: 1.25rem; */
+  list-style: none;
+  @media only screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
 
+const components = {
+  h1: H1,
+  h2: H2,
+  h3: H3,
+  p: Text,
+  li: List,
+  code({ node, inline, className, children, ...props }) {
+    const match = /language-(\w+)/.exec(className || '');
+    return !inline && match ? (
+      <SyntaxHighlighter
+        children={String(children).replace(/\n$/, '')}
+        style={vscDarkPlus}
+        language={match[1]}
+        PreTag="div"
+        {...props}
+      />
+    ) : (
+      <Code>
+        <code className={className} {...props}>
+          {children}
+        </code>
+      </Code>
+    );
+  },
+};
+
+function BlogBody(props) {
+  const [markdown, setMarkdown] = useState('');
+
+  const file = require(`../post/${props.name}.md`).default;
   useEffect(() => {
-    import(`../post/${props.name}.md`)
-      .then(res => {
-        fetch(res.default)
-          .then(res => res.text())
-          .then(res => setPost(res))
-          .catch(err => console.log(err));
-      })
-      .catch(err => console.log(err));
-  });
+    fetch(file)
+      .then(res => res.text())
+      .then(text => setMarkdown(text));
+  }, []);
+
   return (
-    <>
-      <BodyBlock>
-        <Markdown
-          remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
-          options={{
-            overrides: {
-              h1: { component: H1 },
-              h2: { component: H2 },
-              h3: { component: H3 },
-              p: { component: Text },
-              li: { component: List },
-              code: { component: Code },
-              quote: { component: Quote },
-            },
-          }}
-        >
-          {post}
-        </Markdown>
-      </BodyBlock>
-    </>
+    <BodyBlock>
+      <ReactMarkdown
+        source={markdown}
+        remarkPlugins={[remarkGfm]}
+        parserOptions={{ commonmark: true }}
+        components={components}
+      >
+        {markdown}
+      </ReactMarkdown>
+    </BodyBlock>
   );
 }
 
