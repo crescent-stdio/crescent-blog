@@ -15,6 +15,7 @@ function App() {
         <Route path="/post" component={Postlist} />
       </Switch>
       <Route path="/about" component={About} />
+      <Route path="/404" component={NotFound} />
     </>
   );
 }

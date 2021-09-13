@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import BlogFooter from '../components/Footer';
+// import BlogFooter from '../components/Footer';
 import BlogHeader from '../components/Header';
 import postlist from '../post/postlist.json';
 
@@ -20,20 +20,21 @@ const Post = styled.div`
     color: #f05454;
   }
   a {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
   }
   @media only screen and (max-width: 768px) {
     display: flex;
     a {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
     }
   }
 `;
 const Date = styled.small`
   height: 1rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
+  margin-left: 0.25rem;
 `;
 
 function Postlist() {
