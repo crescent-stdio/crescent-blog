@@ -1,12 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-// import BlogFooter from '../components/Footer';
 import BlogHeader from '../components/Header';
-import postlist from '../post/postlist.json';
+import postlist from '../pages/postlist.json';
+// import BlogFooter from '../components/Footer';
 
 const BodyBlock = styled.div`
   margin: 2rem 6rem;
+
+  @media only screen and (max-width: 768px) {
+    margin: 2rem 1rem;
+  }
+`;
+
+const Space = styled.div`
+  min-height: calc(100vh - 10rem);
+  margin: 0rem auto -5rem;
 
   @media only screen and (max-width: 768px) {
     margin: 2rem 1rem;
@@ -35,6 +44,7 @@ const Date = styled.small`
   height: 1rem;
   font-size: 0.875rem;
   margin-left: 0.25rem;
+  color: #999;
 `;
 
 function Postlist() {
@@ -43,10 +53,13 @@ function Postlist() {
       <BlogHeader />
       <BodyBlock>
         {postlist.length &&
-          postlist.map((post, i) => {
+          // JSON.stringify(postlist).map(post => {
+          postlist.reverse().map((post, key) => {
             return (
               <Post>
                 <Link className="links" to={`../post/${post.name}`}>
+                  {key + 1}
+                  {'. '}
                   {post.title}
                   <Date className="links">{post.date}</Date>
                 </Link>
@@ -54,6 +67,7 @@ function Postlist() {
             );
           })}
       </BodyBlock>
+      <Space />
       {/* <BlogFooter/> */}
     </>
   );

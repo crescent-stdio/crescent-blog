@@ -20,8 +20,8 @@ const Comments = () => {
     });
 
     commentRef.current.appendChild(utterance);
-  }, []);
-  return <div classNAme="comments" ref={commentRef}></div>;
+  }, [commentRef]);
+  return <div className="comments" ref={commentRef}></div>;
 
 };
 

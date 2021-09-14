@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import './style.css';
 
 const FooterBlock = styled.div`
-  top: 100vh;
+  /* top: 100vh; */
   padding : 4rem 4rem 2rem;   
   display: flex;
   flex-wrap: wrap;

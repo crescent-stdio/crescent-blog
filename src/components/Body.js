@@ -5,7 +5,7 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-import Tex2SVG, { MathJaxProvider } from 'react-hook-mathjax';
+import Tex2SVG from 'react-hook-mathjax';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 // import 'katex/dist/katex.min.css';
@@ -45,8 +45,13 @@ const BodyContents = styled.article`
   code {
     padding: 2px 6px;
   }
+  small {
+    float: right;
+    font-size: 0.875rem;
+    color: #999;
+  }
   hr {
-    margin: 0rem 0 1rem;
+    /* margin: 0rem 0 1rem; */
     /* background-color: #222831; */
     border-top: 2px solid #dddddd;
   }
@@ -161,24 +166,6 @@ const Ol = styled.ol`
   margin-left: calc(${props => props.depth} * 1rem);
 `;
 
-const mathJaxOptions = {
-  svg: {
-    scale: 1, // global scaling factor for all expressions
-    minScale: 0.5, // smallest scaling factor to use
-    mtextInheritFont: false, // true to make mtext elements use surrounding font
-    merrorInheritFont: true, // true to make merror text use surrounding font
-    mathmlSpacing: false, // true for MathML spacing rules, false for TeX rules
-    skipAttributes: {}, // RFDa and other attributes NOT to copy to the output
-    exFactor: 0.5, // default size of ex in em units
-    displayAlign: 'center', // default for indentalign when set to 'auto'
-    displayIndent: '0', // default for indentshift when set to 'auto'
-    fontCache: 'local', // or 'global' or 'none'
-    localID: null, // ID to use for local font cache (for single equation processing)
-    internalSpeechTitles: true, // insert <title> tags with speech content
-    titleID: 0, // initial id number to use for aria-labeledby titles
-  },
-};
-
 const components = {
   h1: H1,
   h2: H2,
@@ -209,11 +196,10 @@ const components = {
   inlineMath({ value }) {
     return <Tex2SVG display="inline" latex={value || ''} />;
   },
-  escapeHtml: false,
 };
 
 function BlogBody(props) {
-  const file = require(`../post/${props.name}.md`).default;
+  const file = require(`../../public/post/${props.name}/${props.name}.md`).default;
 
   const [data, setData] = useState('Loading...');
   useEffect(() => {
@@ -236,8 +222,7 @@ function BlogBody(props) {
           // remarkPlugins={[remarkMath]}
           // rehypePlugins={[rehypeKatex]}
           // plugins={[remarkGfm, remarkMath, rehypeKatex, rehypeRaw]}
-
-          parserOptions={{ commonmark: true }}
+          // parserOptions={{ commonmark: true }}
           linkTarget={'_blank'}
         />
       </BodyContents>

@@ -43,12 +43,12 @@ printf("<3");
 <br/>
 
 ### Update Log
-- 2021.08.30: 가개장
-- 2021.09.05: 메인 좀 고치기, 마크다운 꾸미기, 자료 찾기
-- 2021.09.06: `markdown-to-jsx` -> `react-markdown`
-- 2021.09.07: `code syntax highlighting` 고치기
-- 2021.09.13: 마크다운 꾸미기(거의 최종)
-- 2021.09.14: KaTeX/Mathjax와 싸우기, 댓글
+- 2021/08/30: 가개장
+- 2021/09/05: 메인 좀 고치기, 마크다운 꾸미기, 자료 찾기
+- 2021/09/06: `markdown-to-jsx` -> `react-markdown`
+- 2021/09/07: `code syntax highlighting` 고치기
+- 2021/09/13: 마크다운 꾸미기(거의 최종)
+- 2021/09/14: KaTeX/Mathjax와 싸우기, 댓글
 
 <br/>
 
