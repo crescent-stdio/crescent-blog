@@ -72,6 +72,9 @@ const BodyContents = styled.article`
   .ketex-display > vlist {
     /* height: 1em; */
   }
+  iframe {
+    max-width: 100% !important;
+  }
 `;
 
 const H1 = styled.h1`
