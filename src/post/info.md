@@ -17,7 +17,7 @@
   * ~~`.md`파일 읽는 방식을 `react*markdown`로 변경~~
   * ~~마크다운 보이는 모습 꾸미기(e.g. line break)~~
   * ~~마크다운 코드 Syntex Highlighting~~
-  * $LaTeX$ 적용 -> 고쳐야 함
+  * LaTeX적용 -> 고쳐야 함
 * **포스트 작성**
   * 맛있는 것🍞
   * 남기고 싶은 것💾
@@ -26,7 +26,7 @@
   * 반응형
   * 웹 접근성 신경 쓰기
 * 추가 구현
-  * 댓글창(utterances?)
+  * ~~댓글창(utterances?)~~
   * 오픈 그래프
 * 손님 모시기
 * (✿◡‿◡) 좋습니다.
@@ -48,7 +48,7 @@ printf("<3");
 - 2021.09.06: `markdown-to-jsx` -> `react-markdown`
 - 2021.09.07: `code syntax highlighting` 고치기
 - 2021.09.13: 마크다운 꾸미기(거의 최종)
-- 2021.09.14: KaTeX와 싸우기
+- 2021.09.14: KaTeX/Mathjax와 싸우기, 댓글
 
 <br/>
 

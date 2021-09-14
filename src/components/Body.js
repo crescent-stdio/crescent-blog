@@ -12,11 +12,11 @@ import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 const BodyBlock = styled.div`
   box-sizing: border-box;
-  margin: 2.5% 10% 5%;
+  margin: 2.5% 10% 7.5%;
   padding: 0 0;
 
   @media only screen and (max-width: 768px) {
-    margin: 2.5% 4.75%;
+    margin: 2.5% 5%;
   }
 `;
 
