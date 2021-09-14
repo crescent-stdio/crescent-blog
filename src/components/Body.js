@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
-import remarkGfm from 'remark-gfm';
-// import remarkMath from 'remark-math';
-// import rehypeKatex from 'rehype-katex';
 import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import Tex2SVG, { MathJaxProvider } from 'react-hook-mathjax';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+// import 'katex/dist/katex.min.css';
 
 const BodyBlock = styled.div`
   box-sizing: border-box;
@@ -45,6 +47,25 @@ const BodyContents = styled.article`
   }
   hr {
     margin: 0rem 0 1rem;
+    /* background-color: #222831; */
+    border-top: 2px solid #dddddd;
+  }
+  /* .katex {
+    font-size: 24px;
+  }*/
+  .katex-display > .katex {
+    white-space: normal;
+  }
+  /* Add space between broken lines: */
+  .katex-display > .base {
+    margin: 0.25em 0;
+  }
+  /* Compensate by reducing space around display math */
+  .katex-display {
+    margin: 0.5em 0;
+  }
+  .ketex-display > vlist {
+    /* height: 1em; */
   }
 `;
 
@@ -75,6 +96,7 @@ const H3 = styled.h3`
   margin: 0.75rem 0 0.375rem;
 
   @media only screen and (max-width: 768px) {
+    margin: 0.75rem 0 0.25rem;
     font-size: 1.25rem;
   }
 `;
@@ -132,23 +154,30 @@ const Quote = styled.div`
   }
 `;
 
-// const Br = styled.br`
-//   font-size: 1rem;
-//   margin: 0 0;
-//   margin: 0.125rem 0;
-//   /* margin-left: 1.25rem; */
-//   list-style: none;
-//   @media only screen and (max-width: 768px) {
-//     font-size: 1rem;
-//   }
-// `;
-
 const Ul = styled.ul`
   margin-left: calc(${props => props.depth} * 1rem);
 `;
 const Ol = styled.ol`
   margin-left: calc(${props => props.depth} * 1rem);
 `;
+
+const mathJaxOptions = {
+  svg: {
+    scale: 1, // global scaling factor for all expressions
+    minScale: 0.5, // smallest scaling factor to use
+    mtextInheritFont: false, // true to make mtext elements use surrounding font
+    merrorInheritFont: true, // true to make merror text use surrounding font
+    mathmlSpacing: false, // true for MathML spacing rules, false for TeX rules
+    skipAttributes: {}, // RFDa and other attributes NOT to copy to the output
+    exFactor: 0.5, // default size of ex in em units
+    displayAlign: 'center', // default for indentalign when set to 'auto'
+    displayIndent: '0', // default for indentshift when set to 'auto'
+    fontCache: 'local', // or 'global' or 'none'
+    localID: null, // ID to use for local font cache (for single equation processing)
+    internalSpeechTitles: true, // insert <title> tags with speech content
+    titleID: 0, // initial id number to use for aria-labeledby titles
+  },
+};
 
 const components = {
   h1: H1,
@@ -174,32 +203,43 @@ const components = {
       <Code>{code}</Code>
     );
   },
+  math({ value }) {
+    return <Tex2SVG display="block" latex={value || ''} />;
+  },
+  inlineMath({ value }) {
+    return <Tex2SVG display="inline" latex={value || ''} />;
+  },
+  escapeHtml: false,
 };
 
 function BlogBody(props) {
-  const [markdown, setMarkdown] = useState('');
-
   const file = require(`../post/${props.name}.md`).default;
+
+  const [data, setData] = useState('Loading...');
   useEffect(() => {
-    fetch(file)
-      .then(res => res.text())
-      .then(text => setMarkdown(text));
-  }, [file]);
+    async function fetchData() {
+      const resp = await fetch(file);
+      setData(await resp.text());
+    }
+    fetchData();
+  });
 
   return (
     <BodyBlock>
       <BodyContents>
         <ReactMarkdown
-          children={markdown}
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-          // remarkPlugins={[remarkMath, remarkGfm]}
-          // rehypePlugins={[rehypeKatex]}
-          parserOptions={{ commonmark: true }}
+          // children={`$ G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = \\kappa T_{\\mu\\nu $`}
+          children={data}
           components={components}
-          linkTarget={'_blank'}        >
-          {markdown}
-        </ReactMarkdown>
+          remarkPlugins={[remarkGfm, remarkMath]}
+          rehypePlugins={[rehypeRaw, rehypeKatex]}
+          // remarkPlugins={[remarkMath]}
+          // rehypePlugins={[rehypeKatex]}
+          // plugins={[remarkGfm, remarkMath, rehypeKatex, rehypeRaw]}
+
+          parserOptions={{ commonmark: true }}
+          linkTarget={'_blank'}
+        />
       </BodyContents>
     </BodyBlock>
   );
