@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Postlist from './pages/Postlist';
 import Post from './pages/Post';
@@ -8,15 +8,17 @@ import NotFound from './pages/404NotFound';
 
 function App() {
   return (
-    <>
-      <Route path="/" exact={true} component={Home} />
-      <Switch >
-        <Route path="/post/:id" component={Post} />
-        <Route path="/post" component={Postlist} />
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact={true} component={Home} />
+        <Switch>
+          <Route path="/post/:id" component={Post} />
+          <Route path="/post" component={Postlist} />
+        </Switch>
+        <Route path="/about" component={About} />
+        <Route component={NotFound} />
       </Switch>
-      <Route path="/about" component={About} />
-      <Route path="/404" component={NotFound} />
-    </>
+    </BrowserRouter>
   );
 }
 
