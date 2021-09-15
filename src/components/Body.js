@@ -43,7 +43,7 @@ const BodyContents = styled.article`
     /* 가운데 정렬 */
     /* display: block; 
     margin: 1rem auto; */
-    max-width: 60%;
+    max-width: 80%;
     @media only screen and (max-width: 768px) {
       max-width: 100%;
     }
@@ -80,10 +80,6 @@ const BodyContents = styled.article`
   }
   iframe {
     max-width: 100% !important;
-  }
-  img {
-
-    max-width: 50%;
   }
 `;
 
@@ -160,7 +156,6 @@ const Quote = styled.div`
   border-radius: 2px;
   font-size: 1rem;
   /* font-weight: bold; */
-  font-style: italic;
   margin: 0 0;
   padding: 1rem;
 

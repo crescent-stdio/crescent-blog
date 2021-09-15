@@ -11,11 +11,11 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
         <Switch>
           <Route path="/post/:id" component={Post} />
           <Route path="/post" component={Postlist} />
         </Switch>
-        <Route path="/about" component={About} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
