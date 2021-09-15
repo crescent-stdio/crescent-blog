@@ -40,7 +40,13 @@ const BodyContents = styled.article`
     font-weight: bold;
   }
   img {
-    max-width: 100%;
+    /* 가운데 정렬 */
+    /* display: block; 
+    margin: 1rem auto; */
+    max-width: 60%;
+    @media only screen and (max-width: 768px) {
+      max-width: 100%;
+    }
   }
   code {
     padding: 2px 6px;
@@ -74,6 +80,10 @@ const BodyContents = styled.article`
   }
   iframe {
     max-width: 100% !important;
+  }
+  img {
+
+    max-width: 50%;
   }
 `;
 
