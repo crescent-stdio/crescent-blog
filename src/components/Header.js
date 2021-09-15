@@ -8,17 +8,28 @@ const HeaderBlock = styled.div`
   top: 0;
   left: 0;
 
-  padding : 5% 5%;   
+  padding: 2.5% 5%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (orientation: landscape) {
+    padding: 2.5% 25%;
+  }
+  @media only screen and (max-height: 1080px) {
+    padding: 2.5% 5%;
+  }
+  @media only screen and (orientation: portrait) {
     padding: 1.5rem 1.5rem;
     height: 5rem;
   }
+  @media only screen and (max-width: 1080px) {
+    padding: 1.5rem 1.5rem;
+    height: 5rem;
+  }
+
 `;
 const Logo = styled.div`
   display: flex;

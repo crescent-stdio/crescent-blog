@@ -12,10 +12,21 @@ import { prism } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 const BodyBlock = styled.div`
   box-sizing: border-box;
+  /* margin: 2.5% 25% 7.5%; */
   margin: 2.5% 10% 7.5%;
+
   padding: 0 0;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (orientation: landscape) {
+    margin: 2.5% 25% 7.5%;
+  }
+  @media only screen and (max-height: 1080px) {
+    margin: 2.5% 10% 7.5%;
+  }
+  @media only screen and (orientation: portrait) {
+    margin: 2.5% 5%;
+  }
+  @media only screen and (max-width: 1080px) {
     margin: 2.5% 5%;
   }
 `;
@@ -43,6 +54,7 @@ const BodyContents = styled.article`
     /* 가운데 정렬 */
     /* display: block; 
     margin: 1rem auto; */
+    display: block;
     max-width: 80%;
     @media only screen and (max-width: 768px) {
       max-width: 100%;
@@ -50,6 +62,7 @@ const BodyContents = styled.article`
   }
   code {
     padding: 2px 6px;
+    margin: 8px auto;
   }
   small {
     float: right;

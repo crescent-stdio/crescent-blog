@@ -11,7 +11,16 @@ const Space = styled.div`
   margin: 12.5% 10% 0%;
   padding: 0 0;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (orientation: landscape) {
+    margin: 12.5% 25% 0%;
+  }
+  @media only screen and (max-height: 1080px) {
+    margin: 12.5% 10% 0%;
+  }
+  @media only screen and (orientation: portrait) {
+    margin: 12.5% 4.75% 0%;
+  }
+  @media only screen and (max-width: 1080px) {
     margin: 12.5% 4.75% 0%;
   }
   .utterances {
