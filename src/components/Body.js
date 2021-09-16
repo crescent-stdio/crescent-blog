@@ -55,9 +55,11 @@ const BodyContents = styled.article`
     /* display: block; 
     margin: 1rem auto; */
     display: block;
-    width: 80%;
+    /* max-width: 80%; */
+    max-height: 50vh;
     @media only screen and (max-width: 768px) {
       width: 100%;
+      max-height: auto;
     }
   }
   code {
