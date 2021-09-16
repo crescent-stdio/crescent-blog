@@ -69,6 +69,11 @@ const BodyContents = styled.article`
     font-size: 0.875rem;
     color: #999;
   }
+  em {
+    color: #f05454;
+    font-style: normal;
+    font-weight: bold;
+  }
   hr {
     /* margin: 0rem 0 1rem; */
     /* background-color: #222831; */
