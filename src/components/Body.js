@@ -57,9 +57,14 @@ const BodyContents = styled.article`
     display: block;
     /* max-width: 80%; */
     max-height: 50vh;
-    @media only screen and (max-width: 768px) {
+
+    @media only screen and (orientation: portrait) {
       width: 100%;
-      max-height: auto;
+      max-height: none;
+    }
+    @media only screen and (max-width: 1080px) {
+      width: 100%;
+      max-height: none;
     }
   }
   code {
@@ -227,7 +232,8 @@ const components = {
 };
 
 function BlogBody(props) {
-  const file = require(`../../public/post/${props.name}/${props.name}.md`).default;
+  const file = require(`../../public/post/${props.name}/${props.name}.md`)
+    .default;
 
   const [data, setData] = useState('Loading...');
   useEffect(() => {
