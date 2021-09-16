@@ -6,10 +6,22 @@ import postlist from '../pages/postlist.json';
 // import BlogFooter from '../components/Footer';
 
 const BodyBlock = styled.div`
-  margin: 2rem 6rem;
+  box-sizing: border-box;
 
-  @media only screen and (max-width: 768px) {
-    margin: 2rem 1rem;
+  margin: 2.5% 10% 7.5%;
+  padding: 0 0;
+
+  @media only screen and (orientation: landscape) {
+    margin: 2.5% 25% 7.5%;
+  }
+  @media only screen and (max-height: 1080px) {
+    margin: 2.5% 10% 7.5%;
+  }
+  @media only screen and (orientation: portrait) {
+    margin: 2.5% 5%;
+  }
+  @media only screen and (max-width: 1080px) {
+    margin: 2.5% 5%;
   }
 `;
 
