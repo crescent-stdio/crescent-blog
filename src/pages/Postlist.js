@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import BlogHeader from '../components/Header';
 import postlist from '../pages/postlist.json';
 // import BlogFooter from '../components/Footer';
+import TypeBlock from '../components/Type';
 
 const BodyBlock = styled.div`
   box-sizing: border-box;
@@ -64,9 +65,11 @@ function Postlist() {
     <>
       <BlogHeader />
       <BodyBlock>
+        <TypeBlock />
         {postlist.length &&
           // JSON.stringify(postlist).map(post => {
           postlist.reverse().map((post, key) => {
+          // postlist.forEach(([key, post]) => {
             return (
               <Post>
                 <Link className="links" to={`../post/${post.name}`}>

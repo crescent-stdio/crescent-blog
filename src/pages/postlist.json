@@ -1,6 +1,7 @@
 [
   {
     "key": 0,
+    "type": "artwork",
     "name": "Planet-4543",
     "title": "초록별 4543호🌏",
     "author": "Crescent🌙",
@@ -8,13 +9,15 @@
   },
   {
     "key": 1,
+    "type": "common",
     "name": "210831-My-First-Post",
     "title": "새로운 블로그 맞이🎉",
     "author": "Crescent🌙",
-    "date": "2021/08/30"
+    "date": "2021/08/31"
   },
   {
     "key": 3,
+    "type": "recipe",
     "name": "210914-Shrimp",
     "title": "크림새우 레시피 대집합🍤",
     "author": "Crescent🌙",
@@ -22,6 +25,7 @@
   },
   {
     "key": 4,
+    "type": "recipe",
     "name": "210916-Berry-Crumble",
     "title": "베리 크럼블바🥰",
     "author": "Crescent🌙",
