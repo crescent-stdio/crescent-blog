@@ -22,8 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-.prettierrc
-.CNAME
-.package.json
-.package-lock.json
-.yarn.lock
+# .eslintrc
+# .prettierrc
+CNAME
+# package.json
+package-lock.json
+yarn.lock
+.env

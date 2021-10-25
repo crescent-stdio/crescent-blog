@@ -7,6 +7,9 @@ const TypeList = styled.div`
   flex-wrap: wrap;
   width: auto;
   margin-bottom: 1rem;
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 0.75rem;
+  }
 `;
 
 function TypeBlock({getFilterName}) {
