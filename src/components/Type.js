@@ -1,4 +1,3 @@
-import { types } from '@babel/core';
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import TypeItem from './TypeItem';
@@ -8,7 +7,7 @@ const TypeList = styled.div`
   margin-bottom: 1rem;
 `;
 
-function TypeBlock() {
+function TypeBlock({getFilterName}) {
   const [types, setTypes] = useState ([
     {
       id: 0,
@@ -48,11 +47,13 @@ function TypeBlock() {
     // }
   ]);
 
-  const onToggle = id => {
+  const onToggle = (id, name) => {
     setTypes(
       types.map(type =>
         type.id === id ? {...type, active: true} : {...type, active: false})
     );
+    getFilterName(name);
+    // console.log(name);
   };
 
   return (

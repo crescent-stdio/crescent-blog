@@ -1,5 +1,5 @@
 {
-  "homepages": "https://crescent-stdio.github.io/crescent-blog/",
+  "homepage": "https://crescent-blog.netlify.app/",
   "name": "crescent-blog",
   "version": "0.1.0",
   "private": true,

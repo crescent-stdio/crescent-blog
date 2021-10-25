@@ -32,7 +32,7 @@ function TypeItem({ typelist, onToggle }) {
   return (
     <>
       {typelist.map(type => (
-        <TypeItemBlock active={type.active} onClick={() => onToggle(type.id)}>{type.text}</TypeItemBlock>
+        <TypeItemBlock active={type.active} onClick={() => onToggle(type.id, type.type)}>{type.text}</TypeItemBlock>
       ))}
     </>
   );

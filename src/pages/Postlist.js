@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import BlogHeader from '../components/Header';
@@ -61,26 +61,47 @@ const Date = styled.small`
 `;
 
 function Postlist() {
+  postlist.reverse();
+  const [filterName, setFilterName] = useState('all');
+  const [filteredPost, setFilteredPost] = useState(postlist);
+
+  useEffect(() => {
+    setFilteredPost(postlist);
+  }, []);
+
+  useEffect(() => {
+    // console.log(filterName);
+    if (filterName === 'all') {
+      setFilteredPost(postlist);
+    } else {
+      setFilteredPost(postlist.filter(post => post.type === filterName));
+    }
+    for(let idx=0; idx<=filteredPost.length; idx++){
+      // setFilteredPost();
+    }
+    // console.log(filteredPost);
+  }, [filterName]);
+
+  if (!postlist.length) return;
+
   return (
     <>
       <BlogHeader />
       <BodyBlock>
-        <TypeBlock />
-        {postlist.length &&
-          // JSON.stringify(postlist).map(post => {
-          postlist.reverse().map((post, key) => {
-          // postlist.forEach(([key, post]) => {
-            return (
-              <Post>
-                <Link className="links" to={`../post/${post.name}`}>
-                  {key + 1}
-                  {'. '}
-                  {post.title}
-                  <Date className="links">{post.date}</Date>
-                </Link>
-              </Post>
-            );
-          })}
+        <TypeBlock getFilterName={setFilterName} />
+        {filteredPost.map(post => {
+          return (
+            <Post>
+              <Link className="links" to={`../post/${post.name}`}>
+                {/* {post.key + 1} */}
+                {filteredPost.findIndex(idx => idx.name ===post.name)}
+                {'. '}
+                {post.title}
+                <Date className="links">{post.date}</Date>
+              </Link>
+            </Post>
+          );
+        })}
       </BodyBlock>
       <Space />
       {/* <BlogFooter/> */}
