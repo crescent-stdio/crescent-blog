@@ -8,6 +8,7 @@ const TypeItemBlock = styled.div`
 
   padding: 0.375rem 1rem;
   margin-right: 0.75rem;
+  margin-bottom: 0.5rem;
 
   border-radius: 16px;
   font-size: 1.25rem;
@@ -25,6 +26,11 @@ const TypeItemBlock = styled.div`
   &:hover {
     background: #f05454;
     color: #eeeeee;
+  }
+  @media only screen and (max-width: 768px) {
+    margin-right: 0.5rem;
+    margin-bottom: 0.375rem;
+    font-size: 1rem;
   }
 `;
 

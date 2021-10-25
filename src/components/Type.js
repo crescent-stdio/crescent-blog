@@ -4,6 +4,8 @@ import TypeItem from './TypeItem';
 
 const TypeList = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  width: auto;
   margin-bottom: 1rem;
 `;
 
