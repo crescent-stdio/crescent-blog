@@ -60,26 +60,21 @@ const Date = styled.small`
   color: #999;
 `;
 
+postlist.reverse();
 function Postlist() {
-  postlist.reverse();
   const [filterName, setFilterName] = useState('all');
   const [filteredPost, setFilteredPost] = useState(postlist);
-
+  
   useEffect(() => {
     setFilteredPost(postlist);
   }, []);
 
   useEffect(() => {
-    // console.log(filterName);
     if (filterName === 'all') {
       setFilteredPost(postlist);
     } else {
       setFilteredPost(postlist.filter(post => post.type === filterName));
     }
-    for(let idx=0; idx<=filteredPost.length; idx++){
-      // setFilteredPost();
-    }
-    // console.log(filteredPost);
   }, [filterName]);
 
   if (!postlist.length) return;

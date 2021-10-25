@@ -56,13 +56,9 @@ const BodyContents = styled.article`
     margin: 1rem auto; */
     display: block;
     /* max-width: 80%; */
-    max-height: 50vh;
+    max-height: 60vh;
 
-    @media only screen and (orientation: portrait) {
-      width: 100%;
-      max-height: none;
-    }
-    @media only screen and (max-width: 1080px) {
+    @media only screen and (max-width: 768px) {
       width: 100%;
       max-height: none;
     }
